@@ -397,12 +397,12 @@ window.Academia && window.Academia.set_gmtoffset && Academia.set_gmtoffset('/gmt
 
  """ 
 
-start_link = 0
-
-intermdiate_link = page.find("<a href=")
-start_link = intermdiate_link
+start_link = page.find("<a href=")
 
 if start_link != -1:
     print(start_link)
+    start = start_link + len("<a href=") + 1
+    end = page.find('"', start)
+    print(page[start:end])
 else:
     print("No link found")
